@@ -1,18 +1,21 @@
-import NavigationBar from "./components/Navbar"
-import Contact from "./components/Contact"
-import SigninForm from "./components/Signin"
-import CakesListPage from "./pages/CakesListPage"
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Container } from "react-bootstrap"
+import Cars from './pages/Cars'
+import LandingPage from './pages/LandingPage'
 
 
 function App() {
 
   return (
-    <>
-      <NavigationBar />
-      <SigninForm />
-      <CakesListPage />
-      <Contact />
-    </>
+    <Container>
+      <BrowserRouter>
+       <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path='/car/:carId' element={<Cars />} />
+       </Routes>
+      </BrowserRouter>
+    </Container>
   )
 }
 
